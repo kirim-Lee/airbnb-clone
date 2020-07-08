@@ -29,3 +29,9 @@
   - pipenv install black --dev --pre
 ### linter
   - flake8
+
+
+## django project 실행
+- python manage.py runserver: 서버를 시작
+- python manage.py migrate : 처음 실행시 어드민을 접속할 수 있게됨
+- python manage.py createsuperuser : 관리자를 만듬
