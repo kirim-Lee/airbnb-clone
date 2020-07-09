@@ -50,5 +50,22 @@
 ### config
 - urls.py URL을 설정
 
-## django user 덮어쓰기
+## django 팁
+### user 덮어쓰기
 - https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#substituting-a-custom-user-model
+  
+### 기본 제공 어드민 화면 사용하기 (리스트)
+- from django.contrib.auth.admin import UserAdmin
+- Custom 클래스에 상속해줌 (users/admin.py 참조)
+- **class CustomUserAdmin(UserAdmin):**
+  
+### admin 리스트에 항목 정의
+- list_display("param name",...)
+- https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display
+  
+### admin 리스트 필터링
+- list_filter("param name", ...)
+- https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_filter
+
+### admin view page fieldset
+- https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.fieldsets
