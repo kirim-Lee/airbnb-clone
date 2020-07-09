@@ -35,3 +35,9 @@
 - python manage.py runserver: 서버를 시작
 - python manage.py migrate : 처음 실행시 어드민을 접속할 수 있게됨
 - python manage.py createsuperuser : 관리자를 만듬
+- python manage.py makemigrations : 마이그레이션 , 데이터 형태가 바뀔때
+- migration => migrate
+
+## django model 생성
+- django-admin startapp [name]
+- 이 프로젝트에서는: rooms, users, review, conversations, list, reservations 을 생성함
