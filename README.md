@@ -41,3 +41,14 @@
 ## django model 생성
 - django-admin startapp [name]
 - 이 프로젝트에서는: rooms, users, review, conversations, list, reservations 을 생성함
+
+## django app 으로 부터
+### 각앱의 
+- admin.py 어드민에 보이고 싶은것
+- views.py 페이지
+- models.py 데이터모델 
+### config
+- urls.py URL을 설정
+
+## django user 덮어쓰기
+- https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#substituting-a-custom-user-model
