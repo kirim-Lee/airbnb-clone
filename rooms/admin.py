@@ -4,7 +4,53 @@ from . import models
 
 @admin.register(models.Room)
 class RoomAdmin(admin.ModelAdmin):
-    pass
+
+    """ Room Admin Definition """
+
+    fieldsets = (
+        ("Basic Info", {"fields": ("name", "description", "country", "address")},),
+        ("Times", {"fields": ("check_in", "check_out", "instant_book")},),
+        ("More About the Space", {"fields": ("beds", "bedrooms", "baths", "guests",)}),
+        (
+            "Spaces",
+            {
+                "classes": ("collapse",),
+                "fields": ("amenity", "facility", "house_rules"),
+            },
+        ),
+        ("Last Details", {"fields": ("host",)}),
+    )
+
+    list_display = (
+        "name",
+        "description",
+        "country",
+        "city",
+        "price",
+        "address",
+        "beds",
+        "bedrooms",
+        "baths",
+        "guests",
+        "check_in",
+        "check_out",
+        "instant_book",
+    )
+
+    list_filter = (
+        "instant_book",
+        "host__superhost",
+        "host__gender",
+        "room_type",
+        "amenity",
+        "facility",
+        "house_rules",
+        "city",
+        "country",
+    )
+
+    search_fields = ("=city", "^host__username")
+    filter_horizontal = ("amenity", "facility", "house_rules")
 
 
 @admin.register(models.RoomType, models.Facility, models.Amenity, models.HouseRule)
@@ -19,4 +65,5 @@ class ItemAdmin(admin.ModelAdmin):
 class PhotoAdmin(admin.ModelAdmin):
 
     """ Photo Admin Definition"""
+
     pass
