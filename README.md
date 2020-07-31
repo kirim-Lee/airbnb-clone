@@ -70,7 +70,7 @@
 ### admin view page fieldset
 - https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.fieldsets
 
-### foreignKey로 연결된 객체 접근
+### foreignKey / ManyToManyField 로 연결된 객체 접근
 - [name]_set 으로 접근
 - obj.[foreignParam]_set.all()
 - model 설정시 related_name 으로 set대신 사용가능
