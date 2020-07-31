@@ -37,7 +37,7 @@ class RoomAdmin(admin.ModelAdmin):
         "check_in",
         "check_out",
         "instant_book",
-        "count_amenities",
+        "count_photo",
     )
 
     list_filter = (
@@ -56,10 +56,10 @@ class RoomAdmin(admin.ModelAdmin):
     filter_horizontal = ("amenity", "facility", "house_rules")
 
     # self = admin class , obj = row
-    def count_amenities(self, obj):
-        return obj.amenity.count()
+    def count_photo(self, obj):
+        return obj.photos.count()
 
-    count_amenities.short_description = "hello "
+    count_photo.short_description = "photo count"
 
 
 @admin.register(models.RoomType, models.Facility, models.Amenity, models.HouseRule)
@@ -67,7 +67,10 @@ class ItemAdmin(admin.ModelAdmin):
 
     """ Item Admin Definition """
 
-    pass
+    list_display = ("name", "used_by")
+
+    def used_by(self, obj):
+        return obj.rooms.count()
 
 
 @admin.register(models.Photo)
