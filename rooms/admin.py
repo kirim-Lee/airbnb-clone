@@ -80,3 +80,4 @@ class PhotoAdmin(admin.ModelAdmin):
     """ Photo Admin Definition"""
 
     pass
+

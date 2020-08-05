@@ -95,5 +95,3 @@ class Photo(core_models.TimeStampedModel):
     file = models.ImageField(upload_to="rooms")
     room = models.ForeignKey(Room, related_name="photos", on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.caption
