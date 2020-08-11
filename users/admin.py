@@ -1,6 +1,13 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from . import models
+from rooms import models as rooms_model
+
+
+class RoomInlines(admin.StackedInline):
+    model = rooms_model.Room
+    classes = ["collapse"]
+
 
 # Register your models here.
 @admin.register(models.User)
@@ -39,4 +46,8 @@ class CustomUserAdmin(UserAdmin):
         "is_staff",
         "is_superuser",
     )
+
+    inlines = [
+        RoomInlines,
+    ]
 
