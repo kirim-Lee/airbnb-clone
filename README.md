@@ -75,3 +75,8 @@
 - obj.[foreignParam]_set.all()
 - model 설정시 related_name 으로 set대신 사용가능
 - 접근 관계에 대해 : A에서 B를 foreignKey로 지정하면 B에서 A를 _set으로 접근할수 있다
+
+### admin.TabularInline
+- foreignKey 를 가지고 있는 모델을 편하게 등록할 수 있도록 설정
+- ex 룸 등록 시 포토를 한번에 등록이 가능
+- fd27abd34774ac81f0057a9c65750d34ef7323a1 커밋 참조

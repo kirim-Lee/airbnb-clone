@@ -3,6 +3,10 @@ from . import models
 from django.utils.html import mark_safe
 
 
+class PhotoInline(admin.TabularInline):
+    model = models.Photo
+
+
 @admin.register(models.Room)
 class RoomAdmin(admin.ModelAdmin):
 
@@ -53,6 +57,10 @@ class RoomAdmin(admin.ModelAdmin):
         "city",
         "country",
     )
+
+    inlines = [
+        PhotoInline,
+    ]
 
     search_fields = ("=city", "^host__username")
     filter_horizontal = ("amenity", "facility", "house_rules")
