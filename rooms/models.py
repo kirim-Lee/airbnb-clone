@@ -87,6 +87,10 @@ class Room(core_models.TimeStampedModel):
 
         return total_rating / len(all_reviews)
 
+    def save(self, *args, **kargs):
+        self.city = str.capitalize(self.city)
+        super().save(*args, **kargs)
+
 
 class Photo(core_models.TimeStampedModel):
     """ Photo Model Definition """
