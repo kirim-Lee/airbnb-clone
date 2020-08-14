@@ -80,3 +80,24 @@
 - foreignKey 를 가지고 있는 모델을 편하게 등록할 수 있도록 설정
 - ex 룸 등록 시 포토를 한번에 등록이 가능
 - fd27abd34774ac81f0057a9c65750d34ef7323a1 커밋 참조
+
+### Base Command 사용하기
+- app 내부에서 (각 폴더에서) 다음과 같은 구조로 파일을 생성한다.
+```structure
+- rooms
+  - management
+    - commands
+      - __init__.py
+      - [사용할 명령어].py
+```
+
+- [사용할 명렁어].py
+```python
+from django.core.management.base import BaseCommand
+
+class Command(BaseCommand):
+  def handle(self, *args, **options):
+    # 사용할 명령 입력
+```
+- 사용: python manage.py [사용할명령어]
+- rooms/management/commands 참조
