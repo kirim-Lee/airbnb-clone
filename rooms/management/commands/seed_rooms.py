@@ -3,8 +3,16 @@ from rooms import models as room_models
 from users.models import User
 from django_seed import Seed
 import random
+from django.contrib.admin.utils import flatten
 
 seeder = Seed.seeder()
+
+
+def add_random(room, types):
+    for t in types:
+        magic_number = random.randint(0, 15)
+        if magic_number % 3 == 0:
+            room.add(t)
 
 
 class Command(BaseCommand):
@@ -19,6 +27,9 @@ class Command(BaseCommand):
 
         all_users = User.objects.all()
         all_room_types = room_models.RoomType.objects.all()
+        amenities = room_models.Amenity.objects.all()
+        facilities = room_models.Facility.objects.all()
+        rules = room_models.HouseRule.objects.all()
 
         seeder.add_entity(
             room_models.Room,
@@ -37,7 +48,22 @@ class Command(BaseCommand):
             },
         )
 
-        seeder.execute()
+        # photo
+        created = seeder.execute()
+        created_clean = flatten(list(created.values()))
+
+        for pk in created_clean:
+            room = room_models.Room.objects.get(pk=pk)
+            for i in range(1, random.randint(3, 5)):
+                room_models.Photo.objects.create(
+                    caption=seeder.faker.sentence(),
+                    file=f"/rooms/photos_seed/{random.randint(1,31)}.webp",
+                    room=room,
+                )
+
+            add_random(room.amenity, amenities)
+            add_random(room.facility, facilities)
+            add_random(room.house_rules, rules)
 
         self.stdout.write(self.style.SUCCESS(f"{number} rooms created!"))
 
