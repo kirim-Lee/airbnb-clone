@@ -85,7 +85,7 @@ class Room(core_models.TimeStampedModel):
             (lambda total, review: total + review.rating_average()), all_reviews, 0,
         )
 
-        return total_rating / len(all_reviews)
+        return total_rating / (len(all_reviews) | 1)
 
     def save(self, *args, **kargs):
         self.city = str.capitalize(self.city)
