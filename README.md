@@ -82,6 +82,7 @@
 - fd27abd34774ac81f0057a9c65750d34ef7323a1 커밋 참조
 
 ### Base Command 사용하기
+- https://docs.djangoproject.com/en/3.1/howto/custom-management-commands/
 - app 내부에서 (각 폴더에서) 다음과 같은 구조로 파일을 생성한다.
 ```structure
 - rooms
