@@ -102,3 +102,5 @@ class Command(BaseCommand):
 ```
 - 사용: python manage.py [사용할명령어]
 - rooms/management/commands 참조
+- users/management/commands 참조
+- django-seed lib 사용
