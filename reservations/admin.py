@@ -12,6 +12,7 @@ class ReservationAdmin(admin.ModelAdmin):
         "status",
         "check_in",
         "check_out",
+        "get_days",
         "guest",
         "in_progress",
         "is_finished",
