@@ -104,3 +104,29 @@ class Command(BaseCommand):
 - rooms/management/commands 참조
 - users/management/commands 참조
 - django-seed lib 사용
+
+
+## django Views / urlpatterns
+- https://docs.djangoproject.com/ko/3.1/intro/tutorial03/
+- config/urls.py 에서 직접 등록이 가능하다.
+```python
+from django.urls import path, include
+
+urlpatterns = [
+    # path / 일때 core/urls.py 를 불러오고 namespace는 core 로 사용하기로 한다
+    # namespace를 사용하면 core/urls.py 에 app_name='core'로 설정해주어야 한다.
+    path("", include("core.urls", namespace="core")),
+    path("admin/", admin.site.urls),
+]
+```
+- core/urls.py
+```python
+from django.urls import path
+from rooms import views as room_views
+
+app_name = "core"
+
+# path "/" 일때 room/views.py 의 all_rooms를 사용하도록 함 
+urlpatterns = [path("", room_views.all_rooms, name="home")]
+```
+
