@@ -170,6 +170,8 @@ TEMPLATES = [
 ### 템플릿 문법
 
 - https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#ref-templates-builtins-tags
+- built-in filter
+  - https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#built-in-filter-reference
 
 #### 공통 템플릿
 - extends 와 block을 이용해 구성할 수 있다.
@@ -192,3 +194,4 @@ TEMPLATES = [
 </body>
 </html>
 ```
+
