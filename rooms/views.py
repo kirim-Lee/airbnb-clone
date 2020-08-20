@@ -1,18 +1,21 @@
+from django.utils import timezone
 from django.shortcuts import render, redirect
 from . import models
 from django.core.paginator import Paginator, EmptyPage
+from django.views.generic.list import ListView
 
-page_size = 10
 
+class HomeView(ListView):
+    """ Home view definition """
 
-def all_rooms(request):
-    page = request.GET.get("page", default="1")
-    room_list = models.Room.objects.all()
-    paginator = Paginator(room_list, page_size, orphans=3, allow_empty_first_page=True)
+    template_name = "rooms/home.html"
+    model = models.Room
+    paginate_by = 10
+    paginate_orphans = 3
+    context_object_name = "rooms"
 
-    try:
-        rooms = paginator.page(int(page))
-        return render(request, "rooms/home.html", {"rooms": rooms})
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["now"] = timezone.now()
+        return context
 
-    except EmptyPage:
-        return redirect("/")

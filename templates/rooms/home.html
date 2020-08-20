@@ -3,17 +3,18 @@
 {%block title%}All rooms{%endblock%}
 
 {%block content%}
-count {{count}}
+<p>{{now}}</p>
+count {{paginator.count}}
 {%if empty%}
 page not exist
 {%endif%}
-{%for room in rooms.object_list%}
+{%for room in rooms%}
 <h1>{{room.name}} / ${{room.price}}</h1>
 {%endfor%}
-<p>Page {{rooms.number}} of {{rooms.paginator.num_pages}}</p>
+<p>Page {{page_obj.number}} of {{paginator.num_pages}}</p>
 
 <h5>
-{% if rooms.has_previous %}<a href="?page={{rooms.previous_page_number}}">Prev</a>{% endif %}
-{%if rooms.has_next%}<a href="?page={{rooms.next_page_number}}">Next</a>{%endif%}
+{% if page_obj.has_previous %}<a href="?page={{page_obj.previous_page_number}}">Prev</a>{% endif %}
+{%if page_obj.has_next%}<a href="?page={{page_obj.next_page_number}}">Next</a>{%endif%}
 </h5>
 {%endblock%}
