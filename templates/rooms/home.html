@@ -4,6 +4,9 @@
 
 {%block content%}
 count {{count}}
+{%if empty%}
+page not exist
+{%endif%}
 {%for room in rooms.object_list%}
 <h1>{{room.name}} / ${{room.price}}</h1>
 {%endfor%}
