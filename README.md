@@ -197,3 +197,7 @@ TEMPLATES = [
 
 ### django paginator
 - https://docs.djangoproject.com/en/3.1/ref/paginator/#django.core.paginator.Page
+
+### Class based list view
+- https://docs.djangoproject.com/en/3.1/ref/class-based-views/
+- https://ccbv.co.uk/
