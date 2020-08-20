@@ -195,3 +195,5 @@ TEMPLATES = [
 </html>
 ```
 
+### django paginator
+- https://docs.djangoproject.com/en/3.1/ref/paginator/#django.core.paginator.Page
